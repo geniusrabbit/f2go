@@ -82,6 +82,8 @@ func byteStrFmt(v byte) []byte {
 		return []byte{'\\', 't'}
 	case v == ' ':
 		return []byte{' '}
+	case v == '\\':
+		return []byte{'\\', '\\'}
 	case v == '"':
 		return []byte{'\\', '"'}
 	case v > 0x32 && v < 0x7f:
