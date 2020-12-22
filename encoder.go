@@ -5,8 +5,10 @@ import (
 	"io"
 )
 
+// Encoder of data tupe
 type Encoder int
 
+// Type of encoders
 const (
 	ByteEncoder Encoder = iota
 	StringEncoder
@@ -19,8 +21,10 @@ func (enc Encoder) encoder() encoder {
 	return byteEncoder
 }
 
-type encoder func(io.Reader, io.Writer) error
-type byteFmt func(v byte) []byte
+type (
+	encoder func(io.Reader, io.Writer) error
+	byteFmt func(v byte) []byte
+)
 
 // ByteEncoder converts file to the byte style array
 // example: '\x74', '\x65', '\x73', '\x74'

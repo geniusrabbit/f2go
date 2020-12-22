@@ -4,10 +4,10 @@ import "testing"
 
 func Test_VariableNamePrepare(t *testing.T) {
 	var tests = [][]string{
-		[]string{"new_test_name", "NewTestName"},
-		[]string{"http/server", "HTTPServer"},
-		[]string{"Xml_Encoder Server", "XMLEncoderServer"},
-		[]string{"TREE-BIN-CON", "TreeBinCon"},
+		{"new_test_name", "NewTestName"},
+		{"http/server", "HTTPServer"},
+		{"Xml_Encoder Server", "XMLEncoderServer"},
+		{"TREE-BIN-CON", "TreeBinCon"},
 	}
 
 	for _, test := range tests {

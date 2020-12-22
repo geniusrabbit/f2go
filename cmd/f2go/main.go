@@ -114,6 +114,8 @@ func convertFile(ctx *cli.Context) (err error) {
 	renderCtx := &f2go.RenderContext{
 		PackageName: ctx.String("package"),
 		DataName:    ctx.String("varname"),
+		Filepath:    srcFile,
+		Filename:    filepath.Base(srcFile),
 	}
 
 	if renderCtx.PackageName == "" {

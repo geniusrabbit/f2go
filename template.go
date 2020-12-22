@@ -10,6 +10,8 @@ type templateEncoder func(w io.Writer) error
 
 // RenderContext data
 type RenderContext struct {
+	Filename    string
+	Filepath    string
 	PackageName string
 	DataName    string
 }
@@ -57,6 +59,8 @@ func (t *templateWrapper) prepareData(data []byte, ctx *RenderContext) []byte {
 	return t.replaceAll(data,
 		[]byte(`{{.PackageName}}`), []byte(ctx.PackageName),
 		[]byte(`{{.DataName}}`), []byte(ctx.DataName),
+		[]byte(`{{.Filepath}}`), []byte(ctx.Filepath),
+		[]byte(`{{.Filename}}`), []byte(ctx.Filename),
 	)
 }
 
