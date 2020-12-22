@@ -51,6 +51,14 @@ func Test_stringEncoder(t *testing.T) {
 			r:      strings.NewReader("the japan news【モスクワ＝畑武尊】!"),
 			result: `"the japan news\xe3\x80\x90\xe3\x83\xa2\xe3\x82\xb9\xe3\x82\xaf\xe3\x83\xaf\xef\xbc\x9d\xe7\x95\x91\xe6\xad\xa6\xe5\xb0\x8a\xe3\x80\x91\x21"`,
 		},
+		{
+			r:      bytes.NewBuffer([]byte("New\n\tline")),
+			result: `"New\n\tline"`,
+		},
+		{
+			r:      bytes.NewBuffer([]byte("{\"text\":\"test text\\nnewline\"}")),
+			result: `"{\"text\":\"test text\\nnewline\"}"`,
+		},
 	}
 
 	var buff bytes.Buffer
